@@ -1,0 +1,72 @@
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.player {
+  position: absolute;
+  font-family: cursive;
+  margin: 100px 50%;
+  transform: translateX(-50%);
+  height: 100px;
+  width: 60%;
+  background: #6fb6f8;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 10% auto;
+}
+.player__timeline {
+  width: 90%;
+  background: grey;
+  height: 10px;
+  justify-self: center;
+  align-self: center;
+  border-radius: 5px;
+  position: relative;
+}
+.player__timeinfo {
+  display: grid;
+}
+.player__trackCurrentTime {
+  margin: 5px;
+  display: inline;
+  position: absolute;
+}
+.player__trackDuration {
+  margin: 5px;
+  display: inline;
+  position: absolute;
+  right: 0;
+}
+.player__pastTime {
+  height: 100%;
+  background: green;
+  width: 30%;
+  border-radius: 5px;
+  display: grid;
+  position: relative;
+  align-content: center;
+}
+.player__currentPoint {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  z-index: 2;
+  background: white;
+  box-shadow: black 0 0 2px 1px;
+  justify-self: end;
+}
+.player__stopButton {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  align-self: center;
+  justify-self: center;
+}
+.player .stoped {
+  background: red;
+}
+.player .playing {
+  background: green;
+}

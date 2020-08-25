@@ -1,0 +1,74 @@
+body{
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.player{
+    position: absolute;
+    font-family: cursive;
+    margin: 100px 50%;
+    transform: translateX(-50%);
+    height: 100px;
+    width:60%;
+    background: rgb(111, 182, 248);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 10% auto;
+    &__timeline{
+        width: 90%;
+        background: grey;
+        height: 10px;
+        justify-self: center;
+        align-self: center;
+        border-radius: 5px;
+        position: relative;
+    }
+    &__timeinfo{
+        display: grid;
+    }
+    &__trackCurrentTime{
+        margin: 5px;
+        display: inline;
+        position: absolute;
+
+    }
+    &__trackDuration{
+        margin: 5px;
+        display: inline;
+        position: absolute;
+        right: 0;
+    }
+    &__pastTime{
+        height: 100%;
+        background: green;
+        width:30%;
+        border-radius: 5px;
+        display:grid;
+        position: relative;
+        align-content: center;
+    }
+    &__currentPoint{
+        width:20px;
+        height: 20px;
+        border-radius: 50%; 
+        z-index: 2;
+        background: white;
+        box-shadow: black 0 0 2px 1px;
+        justify-self: end;
+        
+    }
+    
+    &__stopButton{
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        align-self: center;
+        justify-self: center;
+    }
+    .stoped{
+        background: red;
+    }
+    .playing{
+        background: green;
+    }
+}
