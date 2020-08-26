@@ -1,20 +1,91 @@
-body{
+body {
     margin: 0;
     padding: 0;
-    position: relative;
 }
-.player{
-    position: absolute;
+
+.App {
+    background: #222;
+}
+
+.wrapper {
+    position: relative;
+    top: 0;
+    left: 10%;
+    width: 80%;
+
+}
+
+.header {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    width: 100%;
+    height: 150px;
+
+    &__logo {
+        background: url(https://birds-quiz.netlify.app/static/media/logo.4f82cd73.svg) 0 0/contain no-repeat;
+        width: 200px;
+        height: 55px;
+        justify-self: start;
+        align-self: center;
+
+    }
+
+    &__categories {
+        background: #008966;
+        width: 100%;
+        border-radius: 10px;
+        grid-row: 2/3;
+        grid-column: 1/3;
+    }
+
+    &__score {
+        color: white;
+        font-size: 30px;
+        justify-self: end;
+        align-self: center;
+    }
+
+
+}
+
+.currentQuestion {
+    display: grid;
+    grid-template-rows: 100px 100px;
+    grid-template-columns: 30% auto;
+    &__img {
+        justify-self: center;
+        align-self: center;
+        display: inline-block;
+        width: 200px;
+        height: 200px;
+        grid-row: 1/3 ;
+        grid-column:1/2 ;
+    }
+    &__birdName{
+        justify-self: center;
+        align-self: center;
+        color: white;
+        font-size: 30px;
+        grid-row: 1/2 ;
+        grid-column: 2/3 ;
+    }
+    & > .player{
+        grid-row: 1/3 ;
+        grid-column: 2/3 ;
+    }
+}
+
+.player {
     font-family: cursive;
     margin: 100px 50%;
     transform: translateX(-50%);
     height: 100px;
-    width:60%;
-    background: rgb(111, 182, 248);
+    width: 90%;
     border-radius: 10px;
     display: grid;
     grid-template-columns: 10% auto;
-    &__timeline{
+
+    &__timeline {
         width: 90%;
         background: grey;
         height: 10px;
@@ -23,52 +94,59 @@ body{
         border-radius: 5px;
         position: relative;
     }
-    &__timeinfo{
+
+    &__timeinfo {
         display: grid;
     }
-    &__trackCurrentTime{
+
+    &__trackCurrentTime {
         margin: 5px;
         display: inline;
         position: absolute;
 
     }
-    &__trackDuration{
+
+    &__trackDuration {
         margin: 5px;
         display: inline;
         position: absolute;
         right: 0;
     }
-    &__pastTime{
+
+    &__pastTime {
         height: 100%;
         background: green;
-        width:30%;
+        width: 30%;
         border-radius: 5px;
-        display:grid;
+        display: grid;
         position: relative;
         align-content: center;
     }
-    &__currentPoint{
-        width:20px;
+
+    &__currentPoint {
+        width: 20px;
         height: 20px;
-        border-radius: 50%; 
+        border-radius: 50%;
         z-index: 2;
         background: white;
         box-shadow: black 0 0 2px 1px;
         justify-self: end;
-        
+
     }
-    
-    &__stopButton{
+
+    &__stopButton {
         border-radius: 50%;
         height: 40px;
         width: 40px;
         align-self: center;
         justify-self: center;
     }
-    .stoped{
+
+    .stoped {
         background: red;
     }
-    .playing{
+
+    .playing {
         background: green;
     }
 }

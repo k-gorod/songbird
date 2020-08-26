@@ -6,6 +6,8 @@ class Player extends PureComponent {
     constructor(props) {
         super(props)
         this.track = new Audio(this.props.trackSrc);
+        // this.track = new Audio('https://www.xeno-canto.org/sounds/uploaded/BLMSIUFTFU/XC512582-190604_1087_Grus_tok.mp3');
+        
     }
     state = {
         isPlaying: false,
