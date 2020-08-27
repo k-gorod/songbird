@@ -5,20 +5,20 @@ body {
 
 .App {
   background: #222;
+  display: grid;
 }
 
 .wrapper {
   position: relative;
   top: 0;
-  left: 10%;
-  width: 80%;
+  width: 100%;
+  max-width: 84%;
+  justify-self: center;
 }
 
 .header {
   display: grid;
-  grid-template-rows: 50% 50%;
   width: 100%;
-  height: 150px;
 }
 .header__logo {
   background: url(https://birds-quiz.netlify.app/static/media/logo.4f82cd73.svg) 0 0/contain no-repeat;
@@ -26,13 +26,16 @@ body {
   height: 55px;
   justify-self: start;
   align-self: center;
+  margin: 20px 0 15px;
 }
 .header__categories {
   background: #008966;
   width: 100%;
-  border-radius: 10px;
+  border-radius: 5px;
   grid-row: 2/3;
   grid-column: 1/3;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
 }
 .header__score {
   color: white;
@@ -45,6 +48,9 @@ body {
   display: grid;
   grid-template-rows: 100px 100px;
   grid-template-columns: 30% auto;
+  background: #303030;
+  margin: 25px 0;
+  border-radius: 5px;
 }
 .currentQuestion__img {
   justify-self: center;
@@ -66,6 +72,27 @@ body {
 .currentQuestion > .player {
   grid-row: 1/3;
   grid-column: 2/3;
+}
+
+.birdPointsBlock {
+  background: #303030;
+  border-radius: 5px;
+  overflow: hidden;
+  border: solid 1px #555;
+}
+.birdPointsBlock > .point {
+  border-bottom: solid 1px #555;
+  padding: 10px;
+}
+
+.point {
+  justify-self: center;
+  align-self: center;
+  font-size: 18px;
+  color: white;
+  padding: 5px 20px;
+  white-space: nowrap;
+  line-height: 25px;
 }
 
 .player {
