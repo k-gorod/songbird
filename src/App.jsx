@@ -2,25 +2,43 @@ import React from 'react';
 import Player from './Player.jsx'
 import birdsData from './const/birdsData'
 import { Component } from 'react';
-function App() {
-  return (
-    <div className="App">
-      <div className='wrapper'>
-        <Header />
-        <CurrentQuestion bird={birdsData[0][3]} />
-        <BirdPointsBlock numbOfList={0}/>
-        <BirdInfoBlock />
+import BirdPointsBlock from './BirdPointsBlock'
+class App extends Component {
+  state = {
+    activeCategory: 2,
+    randomBird: 3,
+    passed: false
+  }
+  click(e){
+
+  }
+  test(a){
+    this.a=a;
+  }
+  componentDidMount(){
+    console.log(this.a)
+  }
+  render() {
+    
+    return (
+      <div className="App" onClick={(e)=>this.click(e)}>
+        <div className='wrapper'>
+          <Header activeCategory={this.state.activeCategory}/>
+          <CurrentQuestion bird={birdsData[this.state.activeCategory][this.state.randomBird]} passed={this.state.passed} />
+          <BirdPointsBlock birdList={birdsData[this.state.activeCategory]} answer={this.state.randomBird} test= {(a)=>{this.test(a)}}/>
+          <BirdInfoBlock />
+        </div>
+
+
       </div>
-
-
-    </div>
-  );
+    )
+  }
 }
-const categories = ['Разминка', 'Воробьиные', 'Лесные птицы', 'Певчие птицы','Хищные птицы', 'Морские птицы']
-function Header() {
+function Header(props) {
+  const categories = ['Разминка', 'Воробьиные', 'Лесные птицы', 'Певчие птицы', 'Хищные птицы', 'Морские птицы']
   const catArr = [];
   for (let i = 0; i < categories.length; i++) {
-    catArr.push(<div className='header__categoryPoint point'>{categories[i]}</div>)
+    catArr.push(<div className={`header__categoryPoint point ${(i+1)===props.activeCategory?'active':''}`} key={i}>{categories[i]}</div>)
 
   }
   return (
@@ -39,32 +57,36 @@ class CurrentQuestion extends Component {
     this.bird = props.bird;
   }
   render() {
+    let img = this.props.passed ?
+      <div className='currentQuestion__img' style={{ background: 'url(' + this.bird.image + ') center/cover no-repeat' }}></div> :
+      <div className='currentQuestion__img' style={{ background: 'white' }}></div>
+
     return (
       <div className='currentQuestion'>
-
-        <div className='currentQuestion__img' style={{ background: 'url(' + this.bird.image + ') center/cover no-repeat' }}></div>
-        <div className='currentQuestion__birdName'>{this.bird.name}</div>
+        {img}
+        <h2 className='currentQuestion__birdName'>{this.props.passed ? this.bird.name : '*******'}</h2>
         <Player trackSrc={this.bird.audio} />
       </div>)
   }
 }
-function BirdPointsBlock(props) {
-  
-  let birdPoints = [];
-  for (let i = 0; i < birdsData[0].length; i++) {
-    birdPoints.push(
-      <div className='birdPointsBlock__point point'>{birdsData[props.numbOfList][i].name}</div>
-    )
-  }
-  return (
-    <div className='birdPointsBlock'>
-      {birdPoints}
-    </div>)
-}
-function BirdInfoBlock() {
-  return (
-    <div className='birdInfoBlock'>
 
+function BirdInfoBlock(bird) {
+  let info;
+  if (bird.info) {
+    info = (
+      <div className='birdInfoBlock'>
+        <div className='birdInfoBlock__img' style={{ background: 'url(' + bird.image + ') center/cover no-repeat' }}></div>
+        <h2 className='birdInfoBlock__birdName'>{bird.name}</h2>
+        <p className='birdInfoBlock__birdLatName'>{bird.species}</p>
+        <Player trackSrc={bird.audio} />
+        <div className='birdInfoBlock__info'>{bird.description}</div>
+      </div>
+    )
+  } else {
+    info = (<div className='birdInfoBlock'>
+      Послушайте плеер. <br /> Выберите птицу из списка
     </div>)
+  }
+  return info;
 }
 export default App;

@@ -41,6 +41,7 @@ class Player extends PureComponent {
                 
             })
             if (playingStatus) {
+                this.soungPlaying();
                 this.playVar = setInterval(this.soungPlaying, 1000)
             } else {
                 console.log('here')

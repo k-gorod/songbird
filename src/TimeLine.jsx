@@ -19,11 +19,10 @@ class TimeLine extends PureComponent {
     }
 
     render() {
-        let sec = Math.round(this.props.duration);
         return (
             <div className='player__timeinfo'>
                 <div className='player__timeline'>
-                    <div className='player__pastTime' style={{ width: (this.currentPoint + 4) + '%' }}>
+                    <div className='player__pastTime' style={{ width: (this.currentPoint ) + '%' }}>
                         <div className='player__currentPoint'></div>
                     </div>
                     <div className='player__trackCurrentTime'>{Math.floor(Math.round(this.props.currentPoint) / 60) + ':' + Math.round(this.props.currentPoint) % 60}</div>
