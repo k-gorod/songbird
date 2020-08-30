@@ -11,6 +11,9 @@
 # production
 /build
 
+prepros.config
+*/dist
+
 # misc
 .DS_Store
 .env.local

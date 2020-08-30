@@ -21,7 +21,7 @@ class StopButton extends PureComponent {
 
         return (
             <div className={`player__stopButton ${this.state.active ? 'playing' : 'stoped'}`}>
-                {icon}
+                {/* {icon} */}
             </div>
             
         )
